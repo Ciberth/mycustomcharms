@@ -1,0 +1,16 @@
+name: mysimplephpapp
+summary: A very simple php - mysql page
+maintainer: Ciberth 
+description: |
+  <Multi-line description here>
+tags:
+  # Replace "misc" with one or more whitelisted tags from this list:
+  # https://jujucharms.com/docs/stable/authors-charm-metadata
+  - misc
+subordinate: false
+provides:
+  website:
+    interface: http
+requires:
+  database:
+    interface: mysql

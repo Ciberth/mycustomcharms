@@ -1,0 +1,26 @@
+#!/bin/bash
+
+set -eux
+
+db_user=$(relation-get user)
+db_db=$(relation-get database)
+db_pass=$(relation-get password)
+db_host=$(relation-get private-address)
+
+if [[ -z "$db_db" ]]; then
+  juju-log "No db info, exiting"
+  exit 0
+fi
+
+mysimplephpapp_config="/var/www/html/config.php"
+cat <<EOF > $mysimplephpapp_config
+<?php
+\$$db_host = '$db_host';
+\$$db_db = '$db_db';
+\$$db_user = '$db_user';
+\$$db_pass = '$db_pass';
+EOF
+
+chmod 777 /var/www/html/config.php
+status-set active
+open-port 80

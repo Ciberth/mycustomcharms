@@ -1,0 +1,10 @@
+options:
+  filename:
+    type: string
+    default: "page.php"
+    description: "Other name of the php file."
+  databasename:
+    type: string
+    default: simplephpdb
+    description: "Name of the php database this app uses."
+

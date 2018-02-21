@@ -1,0 +1,15 @@
+#!/bin/bash
+
+set -eux
+
+apt install -y apache2 php wget curl libapache2-mod-php php-mcrypt php-mysql
+
+wget https://raw.githubusercontent.com/Ciberth/mycustomcharms/master/apps/php/info.php -O /var/www/html/info.php
+wget https://raw.githubusercontent.com/Ciberth/mycustomcharms/master/apps/php/page.php -O /var/www/html/page.php
+
+status-set maintenance "Fetching php-pages and installing apache2 & php"
+
+systemctl reload apache2
+
+status-set blocked "Waiting for mysql database connection..."
+
