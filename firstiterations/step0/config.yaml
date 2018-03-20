@@ -1,0 +1,5 @@
+options:
+  mysqldb-name:
+    type: string
+    default: "mysqldb1"
+    description: "A short description of the configuration option"

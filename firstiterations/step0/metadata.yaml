@@ -1,0 +1,14 @@
+name: step0
+summary: Few Php pages on apache that requires mysql and mongodb
+maintainer: student <student@student-VirtualBox>
+description: |
+  Few Php pages on apache that requires mysql and mongodb
+tags:
+  - ops
+subordinate: false
+provides:
+  website:
+    interface: http
+requires:
+  mysqldatabase:
+    interface: mysql
